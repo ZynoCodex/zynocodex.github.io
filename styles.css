@@ -104,7 +104,8 @@ footer {
     max-width: var(--maxw);
     margin: 0 auto;
     padding: 18px 0;
-    background: var(--ink-900);
+    backdrop-filter: blur(0.5rem);
+    background-color: color-mix(in srgb, var(--ink-900), transparent 90%);
 }
 .logo-link {
     display: inline-flex;
