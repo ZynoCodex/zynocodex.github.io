@@ -1,0 +1,3 @@
+# ZynoCodex
+
+## Static Website Repository

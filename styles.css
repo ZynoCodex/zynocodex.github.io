@@ -9,6 +9,18 @@
     --stamp-dark: #c97b28;
     --radius: 3px;
     --maxw: 880px;
+    --grid-line: rgba(143, 196, 232, 0.05);
+}
+:root[data-theme='light'] {
+    --ink-900: #f3f7fa;
+    --ink-800: #e3edf4;
+    --line: #6e97b8;
+    --line-bright: #1f6fa8;
+    --paper: #12283d;
+    --paper-dim: #4c6478;
+    --stamp: #d9791e;
+    --stamp-dark: #b8630f;
+    --grid-line: rgba(31, 111, 168, 0.06);
 }
 * {
     box-sizing: border-box;
@@ -24,6 +36,9 @@ body {
     font-size: 17px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
 }
 .grid-bg {
     position: fixed;
@@ -31,8 +46,8 @@ body {
     z-index: 0;
     pointer-events: none;
     background-image:
-        linear-gradient(rgba(143, 196, 232, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(143, 196, 232, 0.05) 1px, transparent 1px);
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 40px 40px;
 }
 a {
@@ -79,8 +94,64 @@ footer {
     z-index: 1;
 }
 
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 18px 0;
+    background: var(--ink-900);
+}
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    /* background: #0e2338; */
+    padding: 7px 14px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+}
+.logo-img {
+    height: 26px;
+    width: auto;
+    display: block;
+}
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: var(--radius);
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--paper);
+    cursor: pointer;
+    transition:
+        border-color 0.15s ease,
+        color 0.15s ease;
+}
+.theme-toggle:hover {
+    border-color: var(--line-bright);
+    color: var(--line-bright);
+}
+.theme-toggle .icon-sun {
+    display: none;
+}
+:root[data-theme='light'] .theme-toggle .icon-moon {
+    display: none;
+}
+:root[data-theme='light'] .theme-toggle .icon-sun {
+    display: block;
+}
+
 .hero {
-    padding: 80px 24px 40px;
+    padding: 32px 24px 40px;
 }
 .title-block {
     max-width: var(--maxw);
