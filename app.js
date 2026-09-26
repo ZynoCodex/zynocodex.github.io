@@ -13,6 +13,13 @@
 })();
 
 (function () {
+    var year = document.getElementById('footerYear');
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
+})();
+
+(function () {
     var root = document.documentElement;
     var btn = document.getElementById('themeToggle');
     function sync() {
